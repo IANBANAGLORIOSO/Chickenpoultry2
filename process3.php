@@ -10,10 +10,10 @@ $quantity ="";
 $unit ="";
 $time ="";
 $amount="";
-$breed="";
+$flocks_id="";
 
 if(isset($_POST['save'])){
-	$breed= $_POST['breed'];
+	$flocks_id= $_POST['flocks_id'];
 	$type_of_feeds = $_POST['type_of_feeds'];
 	$quantity = $_POST['quantity'];
 	$unit = $_POST['unit'];
@@ -26,7 +26,7 @@ if(isset($_POST['save'])){
 		$userid=$row['id'];
 
 	}
-	$mysqli->query("INSERT INTO feeds (userid,breed,type_of_feeds,quantity,unit,amount) VALUES ('$userid','$breed','$type_of_feeds','$quantity','$unit','$amount')") or
+	$mysqli->query("INSERT INTO feeds (userid,flocks_id,type_of_feeds,quantity,unit,amount) VALUES ('$userid','$flocks_id','$type_of_feeds','$quantity','$unit','$amount')") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -51,7 +51,7 @@ if(isset($_GET['edit'])){
 	$result = $mysqli->query("SELECT * FROM feeds WHERE id=$id") or die($mysqli->error);
 	if(@count($result)==1){
 		$row=$result->fetch_array();
-		$breed = $row['breed'];
+		$flocks_id = $row['flocks_id'];
 		$type_of_feeds = $row['type_of_feeds'];
 		$quantity = $row['quantity'];
 		$unit = $row['unit'];
@@ -63,7 +63,7 @@ if(isset($_GET['edit'])){
 }
 if(isset($_POST['update'])){
 	$id = $_POST['id'];
-	$breed = $_POST['breed'];
+	$flocks_id = $_POST['flocks_id'];
 	$type_of_feeds = $_POST['type_of_feeds'];
 	$quantity = $_POST['quantity'];
 	$unit = $_POST['unit'];
@@ -71,7 +71,7 @@ if(isset($_POST['update'])){
 	$amount = $_POST['amount'];
 	
 	
-	$mysqli->query("UPDATE feeds SET breed='$breed',type_of_feeds='$type_of_feeds',quantity='$quantity',unit='$unit',time='$time',amount ='$amount' WHERE id=$id") or die($mysqli->error);
+	$mysqli->query("UPDATE feeds SET flocks_id='$flocks_id',type_of_feeds='$type_of_feeds',quantity='$quantity',unit='$unit',time='$time',amount ='$amount' WHERE id=$id") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	

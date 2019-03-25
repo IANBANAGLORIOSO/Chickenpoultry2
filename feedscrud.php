@@ -61,7 +61,7 @@
 			
 				<thead>
 					<tr class="text-white">
-						<th>Breed</th>
+						<th>Flocks_breed</th>
 						<th>Types_of_feeds</th>
 						<th>Quantity</th>
 						<th>Unit</th>
@@ -75,7 +75,7 @@
 					while($row=$result->fetch_assoc()):?>
 					
 						<tr class="text-white">
-							<td><?php echo $row['breed']?></td>
+							<td><?php echo $row['flocks_id']?></td>
 							<td><?php echo $row['type_of_feeds']?></td>
 							<td><?php echo $row['quantity']?></td>
 							<td><?php echo $row['unit']?></td>

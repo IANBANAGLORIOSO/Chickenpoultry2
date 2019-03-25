@@ -310,7 +310,7 @@ $("#menu-toggle").click(function(e) {
 			
 				<thead>
 					<tr class="text-white">
-						<th>Breed</th>
+						<th>flocks_id</th>
 						<th>Types_of_feeds</th>
 						<th>Quantity</th>
 						<th>Unit</th>
@@ -324,7 +324,7 @@ $("#menu-toggle").click(function(e) {
 					while($row=$result->fetch_assoc()):?>
 					
 						<tr class="text-white">
-							<td><?php echo $row['breed']?></td>
+							<td><?php echo $row['flocks_id']?></td>
 							<td><?php echo $row['type_of_feeds']?></td>
 							<td><?php echo $row['quantity']?></td>
 							<td><?php echo $row['unit']?></td>
