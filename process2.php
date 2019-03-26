@@ -1,0 +1,74 @@
+<?php
+
+session_start();
+$mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
+
+$id='';
+$update = false;
+$type_of_vaccine ="";
+$amount="";
+$breed="";
+$time="";
+
+if(isset($_POST['save'])){
+	$breed= $_POST['breed'];
+	$type_of_vaccine = $_POST['type_of_vaccine'];
+	$amount = $_POST['amount'];
+	$username= $_SESSION["username"];
+	$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
+	if(@count($result)==1)
+	{
+		$row=$result->fetch_array();
+		$userid=$row['id'];
+
+	}
+	$mysqli->query("INSERT INTO medication (userid,breed,type_of_vaccine,amount) VALUES ('$userid','$breed','$type_of_vaccine','$amount')") or
+			die($mysqli->error);
+	$_SESSION['message'] = "Record has been saved!";
+	$_SESSION['msg_type'] = "success";
+	
+	
+	header("location:medicationcrud.php");
+}
+if(isset($_GET['delete'])){
+	$id =$_GET['delete'];
+	$mysqli->query("DELETE FROM medication WHERE id=$id") or die($mysqli->error());
+	
+	$_SESSION['message'] = "Record has been deleted!";
+	$_SESSION['msg_type'] = "danger";
+	
+	header("location:medicationcrud.php");
+	
+	
+}
+if(isset($_GET['edit'])){
+	$id = $_GET['edit'];
+	$update =true;
+	$result = $mysqli->query("SELECT * FROM medication WHERE id=$id") or die($mysqli->error);
+	if(@count($result)==1){
+		$row=$result->fetch_array();
+		$breed = $row['breed'];
+		$type_of_vaccine = $row['type_of_vaccine'];
+		$time = $row['time'];
+		$amount = $row['amount'];
+		
+		
+	}
+}
+if(isset($_POST['update'])){
+	$id = $_POST['id'];
+	$breed = $_POST['breed'];
+	$type_of_vaccine = $_POST['type_of_vaccine'];
+	$time = $_POST['time'];
+	$amount = $_POST['amount'];
+	
+	
+	$mysqli->query("UPDATE medication SET breed='$breed',type_of_vaccine='$type_of_vaccine',time='$time',amount ='$amount' WHERE id=$id") or die($mysqli->error);
+	$_SESSION['message'] = "Record has been updated!";
+	$_SESSION['msg_type'] = "warning";
+	
+	header('location:medicationcrud.php');
+}
+
+
+?>
