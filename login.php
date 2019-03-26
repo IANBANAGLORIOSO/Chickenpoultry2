@@ -17,7 +17,7 @@
 				<ul>
 
 					<image src="Image chicken/as.png" height="40px">
-					<li><a href="front1.php">Home</a></li>
+					<li><a href="index.php">Home</a></li>
 					<li><a href="register.php">Sign up</a></li>
 					<li><a href="login.php">Sign in</a></li>
 					<li>Contact Me: 0946-816-2149</li>

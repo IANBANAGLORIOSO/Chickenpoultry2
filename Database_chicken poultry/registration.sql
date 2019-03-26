@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2019 at 10:00 PM
+-- Generation Time: Mar 26, 2019 at 04:48 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -45,7 +45,8 @@ INSERT INTO `customer` (`id`, `userid`, `firstname`, `middlename`, `lastname`, `
 (18, 12, 'devon', 'L', 'bacle', '918231223', 'lamac'),
 (19, 1, 'devon', 'G', 'bacle', '09092121', 'lower lamac'),
 (21, 11, 'Christian', 'P', 'Pocong', '09182772122', 'mobod'),
-(22, 11, 'Ian', 'T', 'Banaglorioso', '0927281283', 'lower lamac');
+(22, 11, 'Ian', 'T', 'Banaglorioso', '0927281283', 'lower lamac'),
+(23, 11, 'Ian Ray', 'T', 'banaglorioso', '0909102332', 'lower lamac');
 
 -- --------------------------------------------------------
 
@@ -92,7 +93,8 @@ CREATE TABLE `feeds` (
 --
 
 INSERT INTO `feeds` (`id`, `userid`, `breed`, `type_of_feeds`, `quantity`, `unit`, `amount`, `time`) VALUES
-(10, 11, 'Marans', 'Layer chicken feed', '12', '22', '111.00', '2019-03-21 13:27:37');
+(10, 11, 'Marans', 'Layer chicken feed', '12', '22', '111.00', '2019-03-21 13:27:37'),
+(11, 1, 'Rosecomb', 'Crumble', '22', '14', '200.00', '2019-03-25 22:40:57');
 
 -- --------------------------------------------------------
 
@@ -116,7 +118,10 @@ INSERT INTO `flocks` (`id`, `userid`, `breed`, `rooster`, `hen`) VALUES
 (1, 1, 'silkie', 55, 60),
 (13, 1, 'leghorn chicken', 21, 22),
 (32, 1, 'Marans', 22, 33),
-(33, 11, 'Marans', 33, 44);
+(33, 11, 'Marans', 33, 44),
+(35, 1, 'Rosecomb', 33, 20),
+(36, 11, 'LegHorn chicken', 66, 22),
+(37, 11, 'Brahma', 22, 23);
 
 -- --------------------------------------------------------
 
@@ -162,7 +167,8 @@ CREATE TABLE `medication` (
 --
 
 INSERT INTO `medication` (`id`, `userid`, `breed`, `type_of_vaccine`, `time`, `amount`) VALUES
-(18, 11, 'leghorn chicken', 'live vaccine', '2019-03-21 14:03:10', '660.00');
+(18, 11, 'leghorn chicken', 'live vaccine', '2019-03-21 14:03:10', '660.00'),
+(19, 1, 'Rosecomb', 'Mycotoxin', '2019-03-25 22:40:12', '600.00');
 
 -- --------------------------------------------------------
 
@@ -310,7 +316,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `eggs`
 --
@@ -320,12 +326,12 @@ ALTER TABLE `eggs`
 -- AUTO_INCREMENT for table `feeds`
 --
 ALTER TABLE `feeds`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `flocks`
 --
 ALTER TABLE `flocks`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `item`
 --
@@ -335,7 +341,7 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `medication`
 --
 ALTER TABLE `medication`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `sales`
 --
