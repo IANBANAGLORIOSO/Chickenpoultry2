@@ -41,7 +41,7 @@
 						$result = mysqli_query($mysqli, $sql);
 
 				?>
-				<select name="lastname"class="form-control">
+				<select name="customer_id"class="form-control">
                       <?php
                           
 						  
@@ -49,7 +49,7 @@
 
                             while ($row = mysqli_fetch_array($result)) {
                       ?>
-                           <option value="<?php echo $row['lastname'];?>"><?php echo $row['lastname'];?></option>   
+                           <option value="<?php echo $row['id'];?>"><?php echo $row['lastname'];?></option>   
                            <?php   
                           }
                           ?>

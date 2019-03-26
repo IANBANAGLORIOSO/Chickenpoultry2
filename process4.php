@@ -6,10 +6,10 @@ $mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($
 $id='';
 $update = false;
 $time ="";
-$lastname="";
+$customer_id="";
 
 if(isset($_POST['save'])){
-	$lastname = $_POST['lastname'];
+	$customer_id = $_POST['customer_id'];
 	$username= $_SESSION["username"];
 	$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
 	if(@count($result)==1)
@@ -18,7 +18,7 @@ if(isset($_POST['save'])){
 		$userid=$row['id'];
 
 	}
-	$mysqli->query("INSERT INTO sales (userid,id,lastname) VALUES ('$userid','$id','$lastname')") or
+	$mysqli->query("INSERT INTO sales (userid,id,customer_id) VALUES ('$userid','$id','$customer_id')") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -43,7 +43,7 @@ if(isset($_GET['edit'])){
 	$result = $mysqli->query("SELECT * FROM sales WHERE id=$id") or die($mysqli->error);
 	if(@count($result)==1){
 		$row=$result->fetch_array();
-		$lastname = $row['lastname'];
+		$customer_id = $row['customer_id'];
 		
 		
 	}
@@ -51,7 +51,7 @@ if(isset($_GET['edit'])){
 if(isset($_POST['update'])){
 	$id = $_POST['id'];
 	$lastname= $_POST['lastname'];
-	$mysqli->query("UPDATE sales SET id='$id',lastname ='$lastname' WHERE id=$id") or die($mysqli->error);
+	$mysqli->query("UPDATE sales SET id='$id',customer_id ='$customer_id' WHERE id=$id") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	
