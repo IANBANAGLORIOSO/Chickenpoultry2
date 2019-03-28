@@ -33,7 +33,13 @@
 		
 		<div class="form-group">
 			<label>Description</label>
-			<input type="text" name="description" class="form-control" value="<?php echo $description;?>"placeholder="Enter description"required>
+			<select name="description" class="form-control" value="<?php echo $description;?>"required>
+			<option value=""></option>
+			<option value="Chicken">chicken</option>
+			<option value="Eggs">Eggs</option>
+			<option value="Meat">Meat</option>
+			
+			</select>
 		</div>
 		<div class="form-group">
 			<label>Unit</label>

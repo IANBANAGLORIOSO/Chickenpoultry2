@@ -77,9 +77,9 @@
 					
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
-							<td><?php echo $row['description']?></td>
+							<td><?php echo $row['item_id']?></td>
 							<td><?php echo $row['quantity']?></td>
-							<td><?php echo $row['lastname']?></td>
+							<td><?php echo $row['customer_id']?></td>
 							<td><?php echo $row['price']?></td>
 							<td><?php echo $row['time']?></td>
 							

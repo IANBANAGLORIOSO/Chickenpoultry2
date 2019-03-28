@@ -5,17 +5,17 @@ $mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($
 
 $id='';
 $update = false;
-$description="";
+$item_id="";
 $quantity="";
 $price="";
 $time="";
-$lastname="";
+$customer_id="";
 
 if(isset($_POST['save'])){
 	$quantity = $_POST['quantity'];
 	$price = $_POST['price'];
-	$description=$_POST['description'];
-	$lastname = $_POST['lastname'];
+	$item_id=$_POST['item_id'];
+	$customer_id = $_POST['customer_id'];
 	$username= $_SESSION["username"];
 	$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
 	if(@count($result)==1)
@@ -24,7 +24,7 @@ if(isset($_POST['save'])){
 		$userid=$row['id'];
 
 	}
-	$mysqli->query("INSERT INTO salesitem (userid,description,quantity,price,lastname) VALUES ('$userid','$description','$quantity','$price','$lastname')") or
+	$mysqli->query("INSERT INTO salesitem (userid,item_id,quantity,price,customer_id) VALUES ('$userid','$item_id','$quantity','$price','$customer_id')") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -49,8 +49,8 @@ if(isset($_GET['edit'])){
 	$result = $mysqli->query("SELECT * FROM salesitem WHERE id=$id") or die($mysqli->error);
 	if(@count($result)==1){
 		$row=$result->fetch_array();
-		$salesid = $row['salesid'];
-		$itemid = $row['itemid'];
+		$customer_id = $row['customer_id'];
+		$item_id = $row['item_id'];
 		$quantity = $row['quantity'];
 		$price = $row['price'];
 		
@@ -59,13 +59,13 @@ if(isset($_GET['edit'])){
 }
 if(isset($_POST['update'])){
 	$id =$_POST['id'];
-	$salesid= $_POST['salesid'];
-	$itemid = $_POST['itemid'];
+	$customer_id= $_POST['customer_id'];
+	$item_id = $_POST['item_id'];
 	$quantity= $_POST['quantity'];
 	$price= $_POST['price'];
 	
 	
-	$mysqli->query("UPDATE salesitem SET salesid='$salesid',itemid='$itemid',quantity ='$quantity',price='$price' WHERE id=$id") or die($mysqli->error);
+	$mysqli->query("UPDATE salesitem SET customer_id='$customer_id',item_id='$item_id',quantity ='$quantity',price='$price' WHERE id=$id") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	

@@ -62,6 +62,7 @@
 				<thead>
 					<tr class="text-white">
 						<th>Egg_ID</th>
+						<th>flocks_ID</th>
 						<th>Small</th>
 						<th>Medium</th>
 						<th>Large</th>
@@ -77,6 +78,7 @@
 					
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
+							<td><?php echo $row['flocks_id']?></td>
 							<td><?php echo $row['small']?></td>
 							<td><?php echo $row['medium']?></td>
 							<td><?php echo $row['large']?></td>
