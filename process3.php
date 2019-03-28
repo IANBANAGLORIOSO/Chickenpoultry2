@@ -70,7 +70,10 @@ if(isset($_POST['update'])){
 	$amount = $_POST['amount'];
 	
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 6e89c188243c9b6faf4273660f5d6d850eb8651f
 	$mysqli->query("UPDATE feeds SET flocks_id='$flocks_id',type_of_feeds='$type_of_feeds',quantity='$quantity',unit='$unit',amount ='$amount' WHERE id=$id") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";

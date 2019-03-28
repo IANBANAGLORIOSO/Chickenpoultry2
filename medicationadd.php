@@ -36,7 +36,11 @@
 						$result = mysqli_query($mysqli, $sql);
 
 				?>
+<<<<<<< HEAD
 				<select name="flocks_id"class="form-control"value="<?php echo $flocks_id;?>">
+=======
+				<select name="flocks_id"class="form-control">
+>>>>>>> 6e89c188243c9b6faf4273660f5d6d850eb8651f
                       <?php
                           
 						  

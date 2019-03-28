@@ -270,7 +270,7 @@ $("#menu-toggle").click(function(e) {
 					while($row=$result->fetch_assoc()):?>
 					
 						<tr class="text-white">
-							<td><?php echo $row['breed']?></td>
+							<td><?php echo $row['flocks_id']?></td>
 							<td><?php echo $row['type_of_vaccine']?></td>
 							<td><?php echo $row['time']?></td>
 							<td><?php echo $row['amount']?></td>
@@ -407,7 +407,7 @@ $("#menu-toggle").click(function(e) {
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
 							<td><?php echo $row['time']?></td>
-							<td><?php echo $row['lastname']?></td>
+							<td><?php echo $row['customer_id']?></td>
 							
 							
 							
@@ -521,7 +521,11 @@ $("#menu-toggle").click(function(e) {
 				<thead>
 					<tr class="text-white">
 						<th>Egg_ID</th>
+<<<<<<< HEAD
 						<th>Flocks_breed</th>
+=======
+						<th>Flocks_ID</th>
+>>>>>>> 6e89c188243c9b6faf4273660f5d6d850eb8651f
 						<th>Small</th>
 						<th>Medium</th>
 						<th>Large</th>
@@ -537,7 +541,11 @@ $("#menu-toggle").click(function(e) {
 					
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
+<<<<<<< HEAD
 							<td><?php echo $row['breed']?></td>
+=======
+							<td><?php echo $row['flocks_id']?></td>
+>>>>>>> 6e89c188243c9b6faf4273660f5d6d850eb8651f
 							<td><?php echo $row['small']?></td>
 							<td><?php echo $row['medium']?></td>
 							<td><?php echo $row['large']?></td>
@@ -610,9 +618,9 @@ $("#menu-toggle").click(function(e) {
 					
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
-							<td><?php echo $row['description']?></td>
+							<td><?php echo $row['item_id']?></td>
 							<td><?php echo $row['quantity']?></td>
-							<td><?php echo $row['lastname']?></td>
+							<td><?php echo $row['customer_id']?></td>
 							<td><?php echo $row['price']?></td>
 							<td><?php echo $row['time']?></td>
 							
