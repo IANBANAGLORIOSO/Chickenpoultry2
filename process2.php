@@ -7,11 +7,11 @@ $id='';
 $update = false;
 $type_of_vaccine ="";
 $amount="";
-$breed="";
+$flocks_id="";
 $time="";
 
 if(isset($_POST['save'])){
-	$breed= $_POST['breed'];
+	$flocks_id= $_POST['flocks_id'];
 	$type_of_vaccine = $_POST['type_of_vaccine'];
 	$amount = $_POST['amount'];
 	$username= $_SESSION["username"];
@@ -22,7 +22,7 @@ if(isset($_POST['save'])){
 		$userid=$row['id'];
 
 	}
-	$mysqli->query("INSERT INTO medication (userid,breed,type_of_vaccine,amount) VALUES ('$userid','$breed','$type_of_vaccine','$amount')") or
+	$mysqli->query("INSERT INTO medication (userid,flocks_id,type_of_vaccine,amount) VALUES ('$userid','$flocks_id','$type_of_vaccine','$amount')") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -47,9 +47,8 @@ if(isset($_GET['edit'])){
 	$result = $mysqli->query("SELECT * FROM medication WHERE id=$id") or die($mysqli->error);
 	if(@count($result)==1){
 		$row=$result->fetch_array();
-		$breed = $row['breed'];
+		$flocks_id = $row['flocks_id'];
 		$type_of_vaccine = $row['type_of_vaccine'];
-		$time = $row['time'];
 		$amount = $row['amount'];
 		
 		
@@ -57,13 +56,12 @@ if(isset($_GET['edit'])){
 }
 if(isset($_POST['update'])){
 	$id = $_POST['id'];
-	$breed = $_POST['breed'];
+	$flocks_id = $_POST['flocks_id'];
 	$type_of_vaccine = $_POST['type_of_vaccine'];
-	$time = $_POST['time'];
 	$amount = $_POST['amount'];
 	
 	
-	$mysqli->query("UPDATE medication SET breed='$breed',type_of_vaccine='$type_of_vaccine',time='$time',amount ='$amount' WHERE id=$id") or die($mysqli->error);
+	$mysqli->query("UPDATE medication SET flocks_id='$flocks_id',type_of_vaccine='$type_of_vaccine',amount ='$amount' WHERE id=$id") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	

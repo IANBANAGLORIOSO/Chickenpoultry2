@@ -36,7 +36,7 @@
 						$result = mysqli_query($mysqli, $sql);
 
 				?>
-				<select name="breed"class="form-control">
+				<select name="flocks_id"class="form-control"value="<?php echo $flocks_id;?>">
                       <?php
                           
 						  
@@ -44,7 +44,7 @@
 
                             while ($row = mysqli_fetch_array($result)) {
                       ?>
-                           <option class="form-control" value="<?php echo $row['breed'];?>"><?php echo $row['breed'];?></option>   
+                           <option class="form-control" value="<?php echo $row['id'];?>"><?php echo $row['breed'];?></option>   
                            <?php   
                           }
                           ?>

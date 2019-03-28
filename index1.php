@@ -245,6 +245,12 @@ $("#menu-toggle").click(function(e) {
 		//pre_r($result);
 		
 		?>
+		<?php
+	
+		$result = $mysqli->query("SELECT * FROM flocks,medication where flocks.id = medication.flocks_id ") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
 		<h1 class="text-white">Medication Report</h1>
 		<div class="row justify-content-center">
 		<br><br><br>
@@ -252,7 +258,7 @@ $("#menu-toggle").click(function(e) {
 			
 				<thead>
 					<tr class="text-white">
-						<th>Breed</th>
+						<th>Flocks_Breed</th>
 						<th>Types_of_vaccine</th>
 						<th>Timestamp</th>
 						<th>Amount</th>
@@ -303,6 +309,13 @@ $("#menu-toggle").click(function(e) {
 		//pre_r($result);
 		
 		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM flocks,feeds where flocks.id = feeds.flocks_id ") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
 		<h1 class="text-white">Feeds Report</h1>
 		<div class="row justify-content-center">
 		<br><br><br>
@@ -310,7 +323,7 @@ $("#menu-toggle").click(function(e) {
 			
 				<thead>
 					<tr class="text-white">
-						<th>flocks_id</th>
+						<th>flocks_Breed</th>
 						<th>Types_of_feeds</th>
 						<th>Quantity</th>
 						<th>Unit</th>
@@ -324,7 +337,7 @@ $("#menu-toggle").click(function(e) {
 					while($row=$result->fetch_assoc()):?>
 					
 						<tr class="text-white">
-							<td><?php echo $row['flocks_id']?></td>
+							<td><?php echo $row['breed']?></td>
 							<td><?php echo $row['type_of_feeds']?></td>
 							<td><?php echo $row['quantity']?></td>
 							<td><?php echo $row['unit']?></td>
@@ -363,6 +376,13 @@ $("#menu-toggle").click(function(e) {
 		}
 		
 		$result = $mysqli->query("SELECT * FROM sales where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM customer,sales where customer.id = sales.customer_id") or die($mysqli->error);
 		//pre_r($result);
 		
 		?>
@@ -486,6 +506,13 @@ $("#menu-toggle").click(function(e) {
 		//pre_r($result);
 		
 		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM flocks,eggs where flocks.id = eggs.flocks_id") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
 		<h1 class="text-white">Eggs Report</h1>
 		<div class="row justify-content-center">
 		<br><br><br>
@@ -494,6 +521,7 @@ $("#menu-toggle").click(function(e) {
 				<thead>
 					<tr class="text-white">
 						<th>Egg_ID</th>
+						<th>Flocks_breed</th>
 						<th>Small</th>
 						<th>Medium</th>
 						<th>Large</th>
@@ -509,6 +537,7 @@ $("#menu-toggle").click(function(e) {
 					
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
+							<td><?php echo $row['breed']?></td>
 							<td><?php echo $row['small']?></td>
 							<td><?php echo $row['medium']?></td>
 							<td><?php echo $row['large']?></td>
@@ -548,6 +577,13 @@ $("#menu-toggle").click(function(e) {
 		}
 		
 		$result = $mysqli->query("SELECT * FROM salesitem where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM item,customer,salesitem where item.id=salesitem.item_id and customer.id=salesitem.customer_id") or die($mysqli->error);
 		//pre_r($result);
 		
 		?>

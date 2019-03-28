@@ -54,6 +54,12 @@
 		//pre_r($result);
 		
 		?>
+		<?php
+	
+		$result = $mysqli->query("SELECT * FROM flocks,medication where flocks.id = medication.flocks_id ") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
 		
 		<div class="row justify-content-center">
 		<br><br><br>
@@ -61,7 +67,7 @@
 			
 				<thead>
 					<tr class="text-white">
-						<th>Breed</th>
+						<th>Flocks_Breed</th>
 						<th>Types_of_vaccine</th>
 						<th>Timestamp</th>
 						<th>Amount</th>

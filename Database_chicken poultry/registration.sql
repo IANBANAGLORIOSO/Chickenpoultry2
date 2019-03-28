@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2019 at 04:51 AM
+-- Generation Time: Mar 28, 2019 at 03:46 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -57,6 +57,7 @@ INSERT INTO `customer` (`id`, `userid`, `firstname`, `middlename`, `lastname`, `
 CREATE TABLE `eggs` (
   `id` int(100) NOT NULL,
   `userid` int(100) DEFAULT NULL,
+  `flocks_id` int(11) NOT NULL,
   `small` int(100) DEFAULT NULL,
   `medium` int(100) DEFAULT NULL,
   `large` int(100) DEFAULT NULL,
@@ -68,8 +69,8 @@ CREATE TABLE `eggs` (
 -- Dumping data for table `eggs`
 --
 
-INSERT INTO `eggs` (`id`, `userid`, `small`, `medium`, `large`, `spoiled`, `broken`) VALUES
-(5, 11, 200, 440, 300, 31, 40);
+INSERT INTO `eggs` (`id`, `userid`, `flocks_id`, `small`, `medium`, `large`, `spoiled`, `broken`) VALUES
+(6, 11, 35, 12, 23, 23, 55, 12);
 
 -- --------------------------------------------------------
 
@@ -80,11 +81,11 @@ INSERT INTO `eggs` (`id`, `userid`, `small`, `medium`, `large`, `spoiled`, `brok
 CREATE TABLE `feeds` (
   `id` int(100) NOT NULL,
   `userid` int(100) DEFAULT NULL,
-  `breed` varchar(100) DEFAULT NULL,
+  `flocks_id` int(100) DEFAULT NULL,
   `type_of_feeds` varchar(100) DEFAULT NULL,
   `quantity` varchar(100) DEFAULT NULL,
   `unit` varchar(100) DEFAULT NULL,
-  `amount` decimal(10,2) DEFAULT NULL,
+  `amount` decimal(7,2) DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -92,9 +93,9 @@ CREATE TABLE `feeds` (
 -- Dumping data for table `feeds`
 --
 
-INSERT INTO `feeds` (`id`, `userid`, `breed`, `type_of_feeds`, `quantity`, `unit`, `amount`, `time`) VALUES
-(10, 11, 'Marans', 'Layer chicken feed', '12', '22', '111.00', '2019-03-21 13:27:37'),
-(11, 1, 'Rosecomb', 'Crumble', '22', '14', '200.00', '2019-03-25 22:40:57');
+INSERT INTO `feeds` (`id`, `userid`, `flocks_id`, `type_of_feeds`, `quantity`, `unit`, `amount`, `time`) VALUES
+(1, 11, 36, 'Pellets', '12', '12', '500.00', '2019-03-25 12:55:57'),
+(11, 11, 37, 'Fermented feed', '21', '33', '500.00', '2019-03-26 19:42:39');
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,6 @@ INSERT INTO `flocks` (`id`, `userid`, `breed`, `rooster`, `hen`) VALUES
 (1, 1, 'silkie', 55, 60),
 (13, 1, 'leghorn chicken', 21, 22),
 (32, 1, 'Marans', 22, 33),
-(33, 11, 'Marans', 33, 44),
 (35, 1, 'Rosecomb', 33, 20),
 (36, 11, 'LegHorn chicken', 66, 22),
 (37, 11, 'Brahma', 22, 23);
@@ -156,7 +156,7 @@ INSERT INTO `item` (`id`, `userid`, `description`, `unit`, `quality`, `price`) V
 CREATE TABLE `medication` (
   `id` int(100) NOT NULL,
   `userid` int(100) DEFAULT NULL,
-  `breed` varchar(100) DEFAULT NULL,
+  `flocks_id` int(11) NOT NULL,
   `type_of_vaccine` varchar(100) DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `amount` decimal(10,2) DEFAULT NULL
@@ -166,9 +166,9 @@ CREATE TABLE `medication` (
 -- Dumping data for table `medication`
 --
 
-INSERT INTO `medication` (`id`, `userid`, `breed`, `type_of_vaccine`, `time`, `amount`) VALUES
-(18, 11, 'leghorn chicken', 'live vaccine', '2019-03-21 14:03:10', '660.00'),
-(19, 1, 'Rosecomb', 'Mycotoxin', '2019-03-25 22:40:12', '600.00');
+INSERT INTO `medication` (`id`, `userid`, `flocks_id`, `type_of_vaccine`, `time`, `amount`) VALUES
+(20, 11, 35, 'Poultry', '2019-03-26 20:21:59', '555.00'),
+(21, 11, 1, 'Poultry', '2019-03-26 20:21:07', '444.00');
 
 -- --------------------------------------------------------
 
@@ -180,19 +180,16 @@ CREATE TABLE `sales` (
   `id` int(100) NOT NULL,
   `userid` int(100) DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `lastname` varchar(100) DEFAULT NULL
+  `customer_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sales`
 --
 
-INSERT INTO `sales` (`id`, `userid`, `time`, `lastname`) VALUES
-(9, 11, '2019-03-14 23:29:09', 'Sta clara'),
-(10, 11, '2019-03-14 23:34:55', 'bacle'),
-(11, 1, '2019-03-16 14:57:27', 'Sta clara'),
-(12, 11, '2019-03-21 13:28:44', 'Sta clara'),
-(13, 11, '2019-03-21 13:28:52', 'bacle');
+INSERT INTO `sales` (`id`, `userid`, `time`, `customer_id`) VALUES
+(14, 11, '2019-03-26 19:37:04', 22),
+(15, 11, '2019-03-26 20:01:23', 21);
 
 -- --------------------------------------------------------
 
@@ -203,8 +200,8 @@ INSERT INTO `sales` (`id`, `userid`, `time`, `lastname`) VALUES
 CREATE TABLE `salesitem` (
   `id` int(100) NOT NULL,
   `userid` int(100) DEFAULT NULL,
-  `description` varchar(120) NOT NULL,
-  `lastname` varchar(100) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `quantity` varchar(100) DEFAULT NULL,
   `price` decimal(7,2) DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -214,11 +211,8 @@ CREATE TABLE `salesitem` (
 -- Dumping data for table `salesitem`
 --
 
-INSERT INTO `salesitem` (`id`, `userid`, `description`, `lastname`, `quantity`, `price`, `time`) VALUES
-(25, 1, 'confuse', 'Sta clara', '22', '11.00', '2019-03-21 23:21:35'),
-(26, 1, 'confuse', 'bacle', '12', '22.00', '2019-03-21 23:24:02'),
-(27, 11, 'Broiler', 'bacle', '144', '200.00', '2019-03-21 14:07:50'),
-(28, 11, 'eggs', 'Banaglorioso', '56', '1000.00', '2019-03-21 14:09:42');
+INSERT INTO `salesitem` (`id`, `userid`, `item_id`, `customer_id`, `quantity`, `price`, `time`) VALUES
+(33, 11, 6, 23, '44', '22.00', '2019-03-26 20:14:51');
 
 -- --------------------------------------------------------
 
@@ -258,6 +252,7 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `eggs`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `flocks_id` (`flocks_id`),
   ADD KEY `userid` (`userid`);
 
 --
@@ -265,7 +260,8 @@ ALTER TABLE `eggs`
 --
 ALTER TABLE `feeds`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `userid` (`userid`);
+  ADD KEY `userid` (`userid`),
+  ADD KEY `feeds_ibfk_2` (`flocks_id`);
 
 --
 -- Indexes for table `flocks`
@@ -286,6 +282,7 @@ ALTER TABLE `item`
 --
 ALTER TABLE `medication`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `flocks_id` (`flocks_id`),
   ADD KEY `userid` (`userid`);
 
 --
@@ -293,6 +290,7 @@ ALTER TABLE `medication`
 --
 ALTER TABLE `sales`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `customer_id` (`customer_id`),
   ADD KEY `userid` (`userid`);
 
 --
@@ -300,6 +298,8 @@ ALTER TABLE `sales`
 --
 ALTER TABLE `salesitem`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `item_id` (`item_id`),
+  ADD UNIQUE KEY `customer_id` (`customer_id`),
   ADD KEY `userid` (`userid`);
 
 --
@@ -321,7 +321,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `eggs`
 --
 ALTER TABLE `eggs`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `feeds`
 --
@@ -341,17 +341,17 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `medication`
 --
 ALTER TABLE `medication`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `salesitem`
 --
 ALTER TABLE `salesitem`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -371,13 +371,15 @@ ALTER TABLE `customer`
 -- Constraints for table `eggs`
 --
 ALTER TABLE `eggs`
-  ADD CONSTRAINT `eggs_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `eggs_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `eggs_ibfk_2` FOREIGN KEY (`flocks_id`) REFERENCES `flocks` (`id`);
 
 --
 -- Constraints for table `feeds`
 --
 ALTER TABLE `feeds`
-  ADD CONSTRAINT `feeds_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `feeds_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `feeds_ibfk_2` FOREIGN KEY (`flocks_id`) REFERENCES `flocks` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `flocks`
@@ -395,19 +397,23 @@ ALTER TABLE `item`
 -- Constraints for table `medication`
 --
 ALTER TABLE `medication`
-  ADD CONSTRAINT `medication_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `medication_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `medication_ibfk_2` FOREIGN KEY (`flocks_id`) REFERENCES `flocks` (`id`);
 
 --
 -- Constraints for table `sales`
 --
 ALTER TABLE `sales`
-  ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `sales_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`);
 
 --
 -- Constraints for table `salesitem`
 --
 ALTER TABLE `salesitem`
-  ADD CONSTRAINT `salesitem_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `salesitem_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `salesitem_ibfk_3` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`),
+  ADD CONSTRAINT `salesitem_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

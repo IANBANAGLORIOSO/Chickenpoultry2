@@ -54,6 +54,13 @@
 		//pre_r($result);
 		
 		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM flocks,feeds where flocks.id = feeds.flocks_id") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
 		
 		<div class="row justify-content-center">
 		<br><br><br>
@@ -61,7 +68,7 @@
 			
 				<thead>
 					<tr class="text-white">
-						<th>Flocks_breed</th>
+						<th>Flocks_Breed</th>
 						<th>Types_of_feeds</th>
 						<th>Quantity</th>
 						<th>Unit</th>
@@ -75,7 +82,7 @@
 					while($row=$result->fetch_assoc()):?>
 					
 						<tr class="text-white">
-							<td><?php echo $row['flocks_id']?></td>
+							<td><?php echo $row['breed']?></td>
 							<td><?php echo $row['type_of_feeds']?></td>
 							<td><?php echo $row['quantity']?></td>
 							<td><?php echo $row['unit']?></td>
