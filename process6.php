@@ -10,9 +10,11 @@ $medium="";
 $large="";
 $spoiled="";
 $broken="";
+$flocks_id="";
 
 
 if(isset($_POST['save'])){
+	$flocks_id = $_POST['flocks_id'];
 	$small = $_POST['small'];
 	$medium = $_POST['medium'];
 	$large = $_POST['large'];
@@ -26,7 +28,7 @@ if(isset($_POST['save'])){
 		$userid=$row['id'];
 
 	}
-	$mysqli->query("INSERT INTO eggs (userid,id,small,medium,large,spoiled,broken) VALUES ('$userid','$id','$small','$medium','$large','$spoiled','$broken')") or
+	$mysqli->query("INSERT INTO eggs (userid,id,small,medium,large,spoiled,broken,flocks_id) VALUES ('$userid','$id','$small','$medium','$large','$spoiled','$broken','$flocks_id')") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -52,6 +54,7 @@ if(isset($_GET['edit'])){
 	if(@count($result)==1){
 		$row=$result->fetch_array();
 		$id = $row['id'];
+		$flocks_id = $row['flocks_id'];
 		$small = $row['small'];
 		$medium = $row['medium'];
 		$large = $row['large'];
@@ -68,9 +71,10 @@ if(isset($_POST['update'])){
 	$large= $_POST['large'];
 	$spoiled= $_POST['spoiled'];
 	$broken= $_POST['broken'];
+	$flocks_id= $_POST['flocks_id'];
 	
 	
-	$mysqli->query("UPDATE eggs SET id='$id',small='$small',medium ='$medium',large='$large' ,spoiled='$spoiled',broken='$broken' WHERE id=$id") or die($mysqli->error);
+	$mysqli->query("UPDATE eggs SET id='$id',small='$small',medium ='$medium',large='$large' ,spoiled='$spoiled',broken='$broken',flocks_id='$flocks_id' WHERE id=$id") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	

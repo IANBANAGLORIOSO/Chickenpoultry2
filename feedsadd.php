@@ -36,7 +36,7 @@
 						$result = mysqli_query($mysqli, $sql);
 
 				?>
-				<select name="flocks_id"class="form-control">
+				<select name="flocks_id"class="form-control"value="<?php echo $flocks_id;?>">
                       <?php
                           
 						  
