@@ -3,7 +3,23 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Mar 29, 2019 at 09:08 PM
+=======
+<<<<<<< HEAD
+-- Generation Time: Mar 28, 2019 at 03:46 AM
+=======
+<<<<<<< HEAD
+-- Generation Time: Mar 28, 2019 at 03:46 AM
+=======
+<<<<<<< HEAD
+-- Generation Time: Mar 26, 2019 at 04:51 AM
+=======
+-- Generation Time: Mar 26, 2019 at 04:48 AM
+>>>>>>> dc1ec080124e18be6aca0ae21a0c18cfda128db5
+>>>>>>> e592ab81fe3d20cf89ea7d90b87ef11e35554275
+>>>>>>> 6e89c188243c9b6faf4273660f5d6d850eb8651f
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -70,8 +86,12 @@ CREATE TABLE `eggs` (
 --
 
 INSERT INTO `eggs` (`id`, `userid`, `flocks_id`, `small`, `medium`, `large`, `spoiled`, `broken`) VALUES
+<<<<<<< HEAD
 (6, 11, 35, 12, 23, 23, 55, 12),
 (7, 11, 32, 44, 222, 33, 12, 23);
+=======
+(6, 11, 35, 12, 23, 23, 55, 12);
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 
 -- --------------------------------------------------------
 
@@ -95,10 +115,15 @@ CREATE TABLE `feeds` (
 --
 
 INSERT INTO `feeds` (`id`, `userid`, `flocks_id`, `type_of_feeds`, `quantity`, `unit`, `amount`, `time`) VALUES
+<<<<<<< HEAD
 (11, 11, 37, 'Fermented feed', '21', '33', '500.00', '2019-03-26 19:42:39'),
 (12, 11, 1, 'Grower Chicken feeds', '33', '20', '133.00', '2019-03-28 19:03:20'),
 (13, 11, 35, 'Fermented feed', '23', '39', '233.00', '2019-03-28 19:42:42'),
 (14, 11, 13, 'Fermented feed', '31', '44', '551.00', '2019-03-28 19:43:41');
+=======
+(1, 11, 36, 'Pellets', '12', '12', '500.00', '2019-03-25 12:55:57'),
+(11, 11, 37, 'Fermented feed', '21', '33', '500.00', '2019-03-26 19:42:39');
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 
 -- --------------------------------------------------------
 
@@ -170,9 +195,14 @@ CREATE TABLE `medication` (
 --
 
 INSERT INTO `medication` (`id`, `userid`, `flocks_id`, `type_of_vaccine`, `time`, `amount`) VALUES
+<<<<<<< HEAD
 (35, 11, 36, 'Attenuated vaccine', '2019-03-28 19:26:19', '23.00'),
 (36, 11, 35, 'live vaccine', '2019-03-28 19:47:42', '133.00'),
 (38, 11, 37, 'live vaccine', '2019-03-28 19:49:19', '233.00');
+=======
+(20, 11, 35, 'Poultry', '2019-03-26 20:21:59', '555.00'),
+(21, 11, 1, 'Poultry', '2019-03-26 20:21:07', '444.00');
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 
 -- --------------------------------------------------------
 
@@ -192,9 +222,14 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `userid`, `time`, `customer_id`) VALUES
+<<<<<<< HEAD
 (14, 11, '2019-03-28 19:58:56', 23),
 (15, 11, '2019-03-28 19:59:34', 22),
 (17, 11, '2019-03-28 19:59:13', 19);
+=======
+(14, 11, '2019-03-26 19:37:04', 22),
+(15, 11, '2019-03-26 20:01:23', 21);
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 
 -- --------------------------------------------------------
 
@@ -207,9 +242,12 @@ CREATE TABLE `salesitem` (
   `userid` int(100) DEFAULT NULL,
   `item_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
+<<<<<<< HEAD
   `small` int(100) NOT NULL,
   `medium` int(100) NOT NULL,
   `large` int(100) NOT NULL,
+=======
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
   `quantity` varchar(100) DEFAULT NULL,
   `price` decimal(7,2) DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -219,8 +257,13 @@ CREATE TABLE `salesitem` (
 -- Dumping data for table `salesitem`
 --
 
+<<<<<<< HEAD
 INSERT INTO `salesitem` (`id`, `userid`, `item_id`, `customer_id`, `small`, `medium`, `large`, `quantity`, `price`, `time`) VALUES
 (39, 11, 6, 23, 4, 3, 6, '2', '1.00', '2019-03-29 19:17:20');
+=======
+INSERT INTO `salesitem` (`id`, `userid`, `item_id`, `customer_id`, `quantity`, `price`, `time`) VALUES
+(33, 11, 6, 23, '44', '22.00', '2019-03-26 20:14:51');
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 
 -- --------------------------------------------------------
 
@@ -329,7 +372,11 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `eggs`
 --
 ALTER TABLE `eggs`
+<<<<<<< HEAD
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+=======
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 --
 -- AUTO_INCREMENT for table `feeds`
 --
@@ -349,17 +396,29 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `medication`
 --
 ALTER TABLE `medication`
+<<<<<<< HEAD
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+=======
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
+<<<<<<< HEAD
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+=======
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 --
 -- AUTO_INCREMENT for table `salesitem`
 --
 ALTER TABLE `salesitem`
+<<<<<<< HEAD
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+=======
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 --
 -- AUTO_INCREMENT for table `users`
 --

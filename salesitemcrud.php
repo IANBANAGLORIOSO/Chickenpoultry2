@@ -87,12 +87,16 @@
 					
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
+<<<<<<< HEAD
 							<td><?php echo $row['description']?></td>
 							<td><?php echo $row['small']?></td>
 							<td><?php echo $row['medium']?></td>
 							<td><?php echo $row['large']?></td>
+=======
+							<td><?php echo $row['item_id']?></td>
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
 							<td><?php echo $row['quantity']?></td>
-							<td><?php echo $row['lastname']?></td>
+							<td><?php echo $row['customer_id']?></td>
 							<td><?php echo $row['price']?></td>
 							<td><?php echo $row['time']?></td>
 							
