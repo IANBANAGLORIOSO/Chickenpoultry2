@@ -36,7 +36,7 @@
 						$result = mysqli_query($mysqli, $sql);
 
 				?>
-				<select name="flocks_id"class="form-control">
+				<select name="flocks_id"class="form-control"value="<?php echo $flocks_id;?>">
                       <?php
                           
 						  
@@ -74,7 +74,7 @@
 		</div>
 		<div class="form-group">
 			<label>Unit</label>
-			<input type="number" name="unit" class="form-control" value="<?php echo $unit;?>"placeholder="Enter Unit"required>
+			<input type="text" name="unit" class="form-control" value="<?php echo $unit;?>"placeholder="Enter Unit"required>
 		</div>
 		
 		<div class="form-group">

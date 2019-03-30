@@ -63,8 +63,9 @@
 					<tr class="text-white">
 						<th>Item_id</th>
 						<th>Description</th>
-						<th>Unit</th>
+						
 						<th>Quality</th>
+						<th>Unit</th>
 						<th>Price</th>
 						
 						<th colspan="2">Action</th>
@@ -77,8 +78,9 @@
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
 							<td><?php echo $row['description']?></td>
-							<td><?php echo $row['unit']?></td>
+							
 							<td><?php echo $row['quality']?></td>
+							<td><?php echo $row['unit']?></td>
 							<td><?php echo $row['price']?></td>
 							
 							

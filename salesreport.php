@@ -1,9 +1,11 @@
-<?php include('process4.php');?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>User Registration system using PHP and MySQL</title>
-	<link rel="stylesheet" type="text/css"	href="Css1/side.css">
+	<title>Front page</title>
+	
+	<link rel="stylesheet" type="text/css" href="Css1/style.css">
+	<link rel="stylesheet" type="text/css" href="Css1/side.css">
+	<link rel="stylesheet" type="text/js" href="javascript/java.js">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<script type = "text/javascript" src = "bootstrap/js/jquery-slim.min.js"></script>
 	<script type = "text/javascript" src = "bootstrap/js/popper.min.js"></script>
@@ -15,18 +17,20 @@
 			
 				<ul>
 
+					<li><a href="index.php">Home</a></li> 
+					<li>Contact Me: 0946-816-2149</li>
 					
-					
-					<li><a href="index.php">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
 				</ul>
 		
-		
+			</nav>
 	</div>
-	<?php require_once 'process4.php';?>
-	
-	<?php
+
+
+
+
+</script>
+<?php require_once 'process3.php';?>
+<?php
 	
 	if(isset($_SESSION['message'])):?>
 	
@@ -61,6 +65,8 @@
 		//pre_r($result);
 		
 		?>
+		<a href="index1.php"class="btn btn-success">back</a>
+		<h1 class="text-white">Sales Report</h1>
 		<div class="row justify-content-center">
 		<br><br><br>
 			<table class="table">
@@ -71,7 +77,7 @@
 						<th>Time</th>
 						<th>Customer</th>
 						
-						<th colspan="2">Action</th>
+						
 					</tr>
 				</thead>
 				
@@ -84,31 +90,12 @@
 							<td><?php echo $row['lastname']?></td>
 							
 							
-							<td>
-								<a href="salesadd.php?edit=<?php echo $row['id'];?>"
-									class="btn btn-warning">Edit</a>
-								<a href="process4.php?delete=<?php echo $row['id'];?>"
-									class="btn btn-danger">Delete</a>
-									
-							</td>
+							
 						</tr>
 						<?php endwhile;?>
 			</table>
 		</div>
 		<br><br>
-		<center>
-		<a href="salesadd.php"class="btn btn-success">Create info</a>
-		<a href="index1.php"class="btn btn-dark">Back</a>
-		</center>
-		<?php
-		function pre_r($array){
-			echo'<pre>';
-			print_r($array);
-			echo'</pre>';
-		}
-	
-	?>
-	
-</div>
+
 </body>
 </html>

@@ -54,6 +54,13 @@
 		//pre_r($result);
 		
 		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM flocks,eggs where flocks.id = eggs.flocks_id") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
 		
 		<div class="row justify-content-center">
 		<br><br><br>
@@ -62,6 +69,7 @@
 				<thead>
 					<tr class="text-white">
 						<th>Egg_ID</th>
+						<th>flocks_Breed</th>
 						<th>Small</th>
 						<th>Medium</th>
 						<th>Large</th>
@@ -77,6 +85,7 @@
 					
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
+							<td><?php echo $row['breed']?></td>
 							<td><?php echo $row['small']?></td>
 							<td><?php echo $row['medium']?></td>
 							<td><?php echo $row['large']?></td>

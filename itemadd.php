@@ -33,16 +33,21 @@
 		
 		<div class="form-group">
 			<label>Description</label>
-			<input type="text" name="description" class="form-control" value="<?php echo $description;?>"placeholder="Enter description"required>
+			<input type="text" name="description" class="form-control" value="<?php echo $description;?>"placeholder="Enter item description"required>
+			
+			
+			
 		</div>
-		<div class="form-group">
-			<label>Unit</label>
-			<input type="number" name="unit" class="form-control" value="<?php echo $unit;?>"placeholder="Enter Unit"required>
-		</div>
+		
 		<div class="form-group">
 			<label>Quality</label>
 			<input type="number" name="quality" class="form-control" value="<?php echo $quality;?>"placeholder="Enter Quality"required>
 		</div>
+		<div class="form-group">
+			<label>Unit</label>
+			<input type="text" name="unit" class="form-control" value="<?php echo $unit;?>"placeholder="Enter Unit"required>
+		</div>
+		
 		<div class="form-group">
 			<label>Price</label>
 			<input type="number" name="price" class="form-control" value="<?php echo $price;?>"placeholder="Enter Price"required>

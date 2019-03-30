@@ -30,6 +30,25 @@
 	<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 		<div class="form-group">
 		<br><br>
+		<label>Flocks_Id</label>
+				<?php
+						$sql = "SELECT * FROM `flocks`";
+						$result = mysqli_query($mysqli, $sql);
+
+				?>
+				<select name="flocks_id"class="form-control">
+                      <?php
+                          
+						  
+                          $resultCheck = mysqli_num_rows($records);
+
+                            while ($row = mysqli_fetch_array($result)) {
+                      ?>
+                           <option value="<?php echo $row['id'];?>"><?php echo $row['breed'];?></option>   
+                           <?php   
+                          }
+                          ?>
+            </select>
 		<div class="form-group">
 			<label>Small</label>
 			<input type="number" name="small" class="form-control" value="<?php echo $small;?>"placeholder="Enter Small Eggs"required>
