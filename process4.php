@@ -50,8 +50,23 @@ if(isset($_GET['edit'])){
 }
 if(isset($_POST['update'])){
 	$id = $_POST['id'];
+<<<<<<< HEAD
 	$customer_id=$_POST['customer_id'];
 	$mysqli->query("UPDATE sales SET customer_id ='$customer_id' WHERE id=$id") or die($mysqli->error);
+=======
+<<<<<<< HEAD
+	$customer_id=$_POST['customer_id'];
+	$mysqli->query("UPDATE sales SET customer_id ='$customer_id' WHERE id=$id") or die($mysqli->error);
+=======
+<<<<<<< HEAD
+	$customer_id=$_POST['customer_id'];
+	$mysqli->query("UPDATE sales SET customer_id ='$customer_id' WHERE id=$id") or die($mysqli->error);
+=======
+	$lastname= $_POST['lastname'];
+	$mysqli->query("UPDATE sales SET id='$id',customer_id ='$customer_id' WHERE id=$id") or die($mysqli->error);
+>>>>>>> 6e89c188243c9b6faf4273660f5d6d850eb8651f
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
+>>>>>>> 31c3cd95154b92912502c92f2eb5c88cb2d9c5ce
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	

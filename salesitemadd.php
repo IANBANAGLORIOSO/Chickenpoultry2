@@ -30,7 +30,22 @@
 	<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 		<div class="form-group">
 		<br><br>
+<<<<<<< HEAD
 		
+=======
+		<div class="form-group">
+			<label>Small</label>
+			<input type="number" name="small" class="form-control" value="<?php echo $small;?>"placeholder="Enter Quantity"required>
+		</div>
+		<div class="form-group">
+			<label>Medium</label>
+			<input type="number" name="medium" class="form-control" value="<?php echo $medium;?>"placeholder="Enter Quantity"required>
+		</div>
+		<div class="form-group">
+			<label>Large</label>
+			<input type="number" name="large" class="form-control" value="<?php echo $large;?>"placeholder="Enter Quantity"required>
+		</div>
+>>>>>>> 31c3cd95154b92912502c92f2eb5c88cb2d9c5ce
 		<div class="form-group">
 			<label>Quantity</label>
 			<input type="number" name="quantity" class="form-control" value="<?php echo $quantity;?>"placeholder="Enter Quantity"required>
