@@ -87,7 +87,11 @@
 							<td><?php echo $row['breed']?></td>
 							<td><?php echo $row['type_of_vaccine']?></td>
 							<td><?php echo $row['time']?></td>
+<<<<<<< HEAD
 							<td>₱<?php echo $row['amount']?></td>
+=======
+							<td><?php echo $row['amount']?></td>
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 							
 						</tr>
 						<?php endwhile;?>

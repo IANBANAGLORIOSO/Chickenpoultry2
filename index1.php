@@ -89,6 +89,13 @@ $("#menu-toggle").click(function(e) {
 });
 
 </script>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 31c3cd95154b92912502c92f2eb5c88cb2d9c5ce
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 <div class="header">
 	<a href="flocksreport.php" class="button">FLOCKS REPORT</a>
 	<a href="customerreport.php" class="button">CUSTOMER REPORT</a>
@@ -100,6 +107,557 @@ $("#menu-toggle").click(function(e) {
 	<a href="salesitemreport.php" class="button">SALES-ITEM REPORT</a>
 	
 </div>	
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+<?php require_once 'process.php';?>
+	
+	<?php
+	
+	if(isset($_SESSION['message'])):?>
+	
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+	
+	<?php 
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	?>
+	</div>
+	<?php endif ?>
+	<div class="container">
+	<?php
+		$mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
+		$username= $_SESSION["username"];
+		$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
+		if(@count($result)==1)
+		{
+			$row=$result->fetch_array();
+			$userid=$row['id'];
+
+		}
+		$result = $mysqli->query("SELECT * FROM flocks where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<h1 class="text-white">Flocks Report</h1>
+		<div class="row justify-content-center">
+		<br><br><br>
+			<table class="table">
+			
+				<thead>
+					<tr class="text-white">
+						<th>Breed</th>
+						<th>Rooster</th>
+						<th>Hen</th>
+						
+					</tr>
+				</thead>
+				
+				<?php
+					while($row=$result->fetch_assoc()):?>
+					
+						<tr class="text-white">
+							<td><?php echo $row['breed']?></td>
+							<td><?php echo $row['rooster']?></td>
+							<td><?php echo $row['hen']?></td>
+							
+						</tr>
+						<?php endwhile;?>
+			</table>
+		</div>
+		
+		<?php
+		function pre_r($array){
+			echo'<pre>';
+			print_r($array);
+			echo'</pre>';
+		}
+	
+	?>
+
+	
+	<?php
+	
+	if(isset($_SESSION['message'])):?>
+	
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+	
+	<?php 
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	?>
+	</div>
+	<?php endif ?>
+	<div class="container">
+	<?php
+		$mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
+		$username= $_SESSION["username"];
+		$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
+		if(@count($result)==1)
+		{
+			$row=$result->fetch_array();
+			$userid=$row['id'];
+
+		}
+		
+		$result = $mysqli->query("SELECT * FROM customer where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<h1 class="text-white">Customer Report</h1>
+		<div class="row justify-content-center">
+		<br><br><br>
+			<table class="table">
+			
+				<thead>
+					<tr class="text-white">
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Middlename</th>
+						<th>contact_no</th>
+						<th>address</th>
+						
+					</tr>
+				</thead>
+				
+				<?php
+					while($row=$result->fetch_assoc()):?>
+					
+						<tr class="text-white">
+							<td><?php echo $row['firstname']?></td>
+							<td><?php echo $row['lastname']?></td>
+							<td><?php echo $row['middlename']?></td>
+							<td><?php echo $row['contact_no']?></td>
+							<td><?php echo $row['address']?></td>
+							
+						</tr>
+						<?php endwhile;?>
+			</table>
+		</div>
+		
+		
+<br><br>
+	
+	<?php
+	
+	if(isset($_SESSION['message'])):?>
+	
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+	
+	<?php 
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	?>
+	</div>
+	<?php endif ?>
+	<div class="container">
+	<?php
+		$mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
+		$username= $_SESSION["username"];
+		$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
+		if(@count($result)==1)
+		{
+			$row=$result->fetch_array();
+			$userid=$row['id'];
+
+		}
+		
+		$result = $mysqli->query("SELECT * FROM medication where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<?php
+	
+		$result = $mysqli->query("SELECT * FROM flocks,medication where flocks.id = medication.flocks_id ") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<h1 class="text-white">Medication Report</h1>
+		<div class="row justify-content-center">
+		<br><br><br>
+			<table class="table">
+			
+				<thead>
+					<tr class="text-white">
+						<th>Flocks_Breed</th>
+						<th>Types_of_vaccine</th>
+						<th>Timestamp</th>
+						<th>Amount</th>
+						
+					</tr>
+				</thead>
+				
+				<?php
+					while($row=$result->fetch_assoc()):?>
+					
+						<tr class="text-white">
+							<td><?php echo $row['flocks_id']?></td>
+							<td><?php echo $row['type_of_vaccine']?></td>
+							<td><?php echo $row['time']?></td>
+							<td><?php echo $row['amount']?></td>
+							
+						</tr>
+						<?php endwhile;?>
+			</table>
+		</div>
+		<br><br>
+		
+<?php
+	
+	if(isset($_SESSION['message'])):?>
+	
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+	
+	<?php 
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	?>
+	</div>
+	<?php endif ?>
+	<div class="container">
+	<?php
+		$mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
+		$username= $_SESSION["username"];
+		$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
+		if(@count($result)==1)
+		{
+			$row=$result->fetch_array();
+			$userid=$row['id'];
+
+		}
+		
+		$result = $mysqli->query("SELECT * FROM feeds where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM flocks,feeds where flocks.id = feeds.flocks_id ") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<h1 class="text-white">Feeds Report</h1>
+		<div class="row justify-content-center">
+		<br><br><br>
+			<table class="table">
+			
+				<thead>
+					<tr class="text-white">
+						<th>flocks_Breed</th>
+						<th>Types_of_feeds</th>
+						<th>Quantity</th>
+						<th>Unit</th>
+						<th>Time</th>
+						<th>Amount</th>
+						
+					</tr>
+				</thead>
+				
+				<?php
+					while($row=$result->fetch_assoc()):?>
+					
+						<tr class="text-white">
+							<td><?php echo $row['breed']?></td>
+							<td><?php echo $row['type_of_feeds']?></td>
+							<td><?php echo $row['quantity']?></td>
+							<td><?php echo $row['unit']?></td>
+							<td><?php echo $row['time']?></td>
+							<td><?php echo $row['amount']?></td>
+							
+						</tr>
+						<?php endwhile;?>
+			</table>
+		</div>
+		
+		
+	<br><br>
+<?php
+	
+	if(isset($_SESSION['message'])):?>
+	
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+	
+	<?php 
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	?>
+	</div>
+	<?php endif ?>
+	<div class="container">
+	<?php
+		$mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
+		$username= $_SESSION["username"];
+		$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
+		if(@count($result)==1)
+		{
+			$row=$result->fetch_array();
+			$userid=$row['id'];
+
+		}
+		
+		$result = $mysqli->query("SELECT * FROM sales where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM customer,sales where customer.id = sales.customer_id") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<h1 class="text-white">Sales Report</h1>
+		<div class="row justify-content-center">
+		<br><br><br>
+			<table class="table">
+			
+				<thead>
+					<tr class="text-white">
+						<th>Sales_id</th>
+						<th>Time</th>
+						<th>Customer</th>
+						
+						
+					</tr>
+				</thead>
+				
+				<?php
+					while($row=$result->fetch_assoc()):?>
+					
+						<tr class="text-white">
+							<td><?php echo $row['id']?></td>
+							<td><?php echo $row['time']?></td>
+							<td><?php echo $row['customer_id']?></td>
+							
+							
+							
+						</tr>
+						<?php endwhile;?>
+			</table>
+		</div>
+		<br><br>
+<?php
+	
+	if(isset($_SESSION['message'])):?>
+	
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+	
+	<?php 
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	?>
+	</div>
+	<?php endif ?>
+	<div class="container">
+	<?php
+		$mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
+		$username= $_SESSION["username"];
+		$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
+		if(@count($result)==1)
+		{
+			$row=$result->fetch_array();
+			$userid=$row['id'];
+
+		}
+		
+		$result = $mysqli->query("SELECT * FROM item where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<h1 class="text-white">Items Report</h1>
+		<div class="row justify-content-center">
+		<br><br><br>
+			<table class="table">
+			
+				<thead>
+					<tr class="text-white">
+						<th>Item_id</th>
+						<th>Description</th>
+						<th>Unit</th>
+						<th>Quality</th>
+						<th>Price</th>
+						
+					</tr>
+				</thead>
+				
+				<?php
+					while($row=$result->fetch_assoc()):?>
+					
+						<tr class="text-white">
+							<td><?php echo $row['id']?></td>
+							<td><?php echo $row['description']?></td>
+							<td><?php echo $row['unit']?></td>
+							<td><?php echo $row['quality']?></td>
+							<td><?php echo $row['price']?></td>
+							
+							
+							
+						</tr>
+						<?php endwhile;?>
+			</table>
+		</div>
+	<br><br>	
+		
+	<?php
+	
+	if(isset($_SESSION['message'])):?>
+	
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+	
+	<?php 
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	?>
+	</div>
+	<?php endif ?>
+	<div class="container">
+	<?php
+		$mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
+		$username= $_SESSION["username"];
+		$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
+		if(@count($result)==1)
+		{
+			$row=$result->fetch_array();
+			$userid=$row['id'];
+
+		}
+		
+		$result = $mysqli->query("SELECT * FROM eggs where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM flocks,eggs where flocks.id = eggs.flocks_id") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<h1 class="text-white">Eggs Report</h1>
+		<div class="row justify-content-center">
+		<br><br><br>
+			<table class="table">
+			
+				<thead>
+					<tr class="text-white">
+						<th>Egg_ID</th>
+<<<<<<< HEAD
+						<th>Flocks_breed</th>
+=======
+						<th>Flocks_ID</th>
+>>>>>>> 6e89c188243c9b6faf4273660f5d6d850eb8651f
+						<th>Small</th>
+						<th>Medium</th>
+						<th>Large</th>
+						<th>Spoiled</th>
+						<th>Broken</th>
+						
+						
+					</tr>
+				</thead>
+				
+				<?php
+					while($row=$result->fetch_assoc()):?>
+					
+						<tr class="text-white">
+							<td><?php echo $row['id']?></td>
+<<<<<<< HEAD
+							<td><?php echo $row['breed']?></td>
+=======
+							<td><?php echo $row['flocks_id']?></td>
+>>>>>>> 6e89c188243c9b6faf4273660f5d6d850eb8651f
+							<td><?php echo $row['small']?></td>
+							<td><?php echo $row['medium']?></td>
+							<td><?php echo $row['large']?></td>
+							<td><?php echo $row['spoiled']?></td>
+							<td><?php echo $row['broken']?></td>
+							
+							
+							
+						</tr>
+						<?php endwhile;?>
+			</table>
+		</div>
+		
+	<br><br>
+	<?php
+	
+	if(isset($_SESSION['message'])):?>
+	
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+	
+	<?php 
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	?>
+	</div>
+	<?php endif ?>
+	<div class="container">
+	<?php
+		$mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
+		$username= $_SESSION["username"];
+		$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
+		if(@count($result)==1)
+		{
+			$row=$result->fetch_array();
+			$userid=$row['id'];
+
+		}
+		
+		$result = $mysqli->query("SELECT * FROM salesitem where userid='$userid'") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM item,customer,salesitem where item.id=salesitem.item_id and customer.id=salesitem.customer_id") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
+		<h1 class="text-white">SalesItem Report</h1>
+		<div class="row justify-content-center">
+		<br><br><br>
+			<table class="table">
+			
+				<thead>
+					<tr class="text-white">
+						<th>Order</th>
+						<th>Item_Description</th>
+						<th>Quantity</th>
+						<th>Customer</th>
+						<th>Price</th>
+						<th>Timestamp</th>
+						
+						
+					</tr>
+				</thead>
+				
+				<?php
+					while($row=$result->fetch_assoc()):?>
+					
+						<tr class="text-white">
+							<td><?php echo $row['id']?></td>
+							<td><?php echo $row['item_id']?></td>
+							<td><?php echo $row['quantity']?></td>
+							<td><?php echo $row['customer_id']?></td>
+							<td><?php echo $row['price']?></td>
+							<td><?php echo $row['time']?></td>
+							
+						</tr>
+						<?php endwhile;?>
+			</table>
+		</div>
+		
+	
+
+</div>
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
+>>>>>>> 31c3cd95154b92912502c92f2eb5c88cb2d9c5ce
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 <br><br><br><br>
 </body>
 </html>

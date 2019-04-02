@@ -75,12 +75,25 @@
 					<tr class="text-white">
 						<th>Order</th>
 						<th>Item_Description</th>
+<<<<<<< HEAD
 						
 						
 						<th>Customer</th>
 						<th>Quantity</th>
 						<th>Price</th>
 						<th>Total</th>
+=======
+<<<<<<< HEAD
+						
+=======
+						<th>Small</th>
+						<th>Medium</th>
+						<th>Large</th>
+>>>>>>> 31c3cd95154b92912502c92f2eb5c88cb2d9c5ce
+						<th>Quantity</th>
+						<th>Customer</th>
+						<th>Price</th>
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 						<th>Timestamp</th>
 						
 					</tr>
@@ -92,12 +105,25 @@
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
 							<td><?php echo $row['description']?></td>
+<<<<<<< HEAD
 							
 							
 							<td><?php echo $row['lastname']?></td>
 							<td><?php echo $row['quantity']?></td>
 							<td>₱<?php echo $row['price']?></td>
 							<td>₱<?php echo $row['total']?></td>
+=======
+<<<<<<< HEAD
+							
+=======
+							<td><?php echo $row['small']?></td>
+							<td><?php echo $row['medium']?></td>
+							<td><?php echo $row['large']?></td>
+>>>>>>> 31c3cd95154b92912502c92f2eb5c88cb2d9c5ce
+							<td><?php echo $row['quantity']?></td>
+							<td><?php echo $row['lastname']?></td>
+							<td><?php echo $row['price']?></td>
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 							<td><?php echo $row['time']?></td>
 							
 						

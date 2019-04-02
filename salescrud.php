@@ -81,7 +81,7 @@
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
 							<td><?php echo $row['time']?></td>
-							<td><?php echo $row['lastname']?></td>
+							<td><?php echo $row['customer_id']?></td>
 							
 							
 							<td>

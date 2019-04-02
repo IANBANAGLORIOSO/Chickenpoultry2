@@ -83,7 +83,11 @@
 							<td><?php echo $row['description']?></td>
 							<td><?php echo $row['unit']?></td>
 							<td><?php echo $row['quality']?></td>
+<<<<<<< HEAD
 							<td>₱<?php echo $row['price']?></td>
+=======
+							<td><?php echo $row['price']?></td>
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 							
 							
 							

@@ -33,10 +33,30 @@
 		
 		<div class="form-group">
 			<label>Description</label>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 			<input type="text" name="description" class="form-control" value="<?php echo $description;?>"placeholder="Enter item description"required>
 			
 			
 			
+<<<<<<< HEAD
+=======
+=======
+			<select name="description" class="form-control" value="<?php echo $description;?>"required>
+			<option value=""></option>
+			<option value="Chicken">chicken</option>
+			<option value="Eggs">Eggs</option>
+			<option value="Meat">Meat</option>
+			
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Unit</label>
+			<input type="number" name="unit" class="form-control" value="<?php echo $unit;?>"placeholder="Enter Unit"required>
+>>>>>>> 31c3cd95154b92912502c92f2eb5c88cb2d9c5ce
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 		</div>
 		
 		<div class="form-group">

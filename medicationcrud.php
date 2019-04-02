@@ -79,7 +79,7 @@
 					while($row=$result->fetch_assoc()):?>
 					
 						<tr class="text-white">
-							<td><?php echo $row['breed']?></td>
+							<td><?php echo $row['flocks_id']?></td>
 							<td><?php echo $row['type_of_vaccine']?></td>
 							<td><?php echo $row['time']?></td>
 							<td>₱<?php echo $row['amount']?></td>

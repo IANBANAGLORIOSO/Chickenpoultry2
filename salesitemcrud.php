@@ -70,6 +70,17 @@
 					<tr class="text-white">
 						<th>Order</th>
 						<th>Item_Description</th>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+						
+=======
+						<th>Small</th>
+						<th>Medium</th>
+						<th>Large</th>
+>>>>>>> 31c3cd95154b92912502c92f2eb5c88cb2d9c5ce
+						<th>Quantity</th>
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 						<th>Customer</th>
 						<th>Quantity</th>
 						
@@ -86,13 +97,30 @@
 					
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
+<<<<<<< HEAD
 							<td><?php echo $row['description']?></td>
+<<<<<<< HEAD
 							
 							
 							<td><?php echo $row['lastname']?></td>
 							<td><?php echo $row['quantity']?></td>
 							<td>₱<?php echo $row['price']?></td>
 							<td>₱<?php echo $row['total']?></td>
+=======
+<<<<<<< HEAD
+							
+=======
+							<td><?php echo $row['small']?></td>
+							<td><?php echo $row['medium']?></td>
+							<td><?php echo $row['large']?></td>
+=======
+							<td><?php echo $row['item_id']?></td>
+>>>>>>> d3f1135df221dbc7ed5974eabeec9eefac0fb9aa
+>>>>>>> 31c3cd95154b92912502c92f2eb5c88cb2d9c5ce
+							<td><?php echo $row['quantity']?></td>
+							<td><?php echo $row['customer_id']?></td>
+							<td><?php echo $row['price']?></td>
+>>>>>>> 34c8c2a8e37e09b7cd9b54b63666a29f7579d276
 							<td><?php echo $row['time']?></td>
 							
 							
