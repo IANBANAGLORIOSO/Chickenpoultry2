@@ -29,15 +29,49 @@
 	<form action="process7.php" method="POST">
 	<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 		<div class="form-group">
-		<br><br>	
+		<br><br>
+		<label>Item_Description</label>
+				<?php
+						$sql = "SELECT * FROM `item`";
+						$result = mysqli_query($mysqli, $sql);
+
+				?>
+				<select name="item_id"class="form-control">
+                      <?php
+                          
+						  
+                          $resultCheck = mysqli_num_rows($records);
+
+                            while ($row = mysqli_fetch_array($result)) {
+                      ?>
+                           <option class="form-control"value="<?php echo $row['id'];?>"><?php echo $row['description'];?></option>   
+                           <?php   
+                          }
+                          ?>
+            </select>
 		<div class="form-group">
 			<label>Quantity</label>
 			<input type="number" name="quantity" class="form-control" value="<?php echo $quantity;?>"placeholder="Enter Quantity"required>
 		</div>
-		<div class="form-group">
-			<label>Price</label>
-			<input type="number" name="price" class="form-control" value="<?php echo $price;?>"placeholder="Enter Price"required>
-		</div>
+		<label>Price</label>
+				<?php
+						$sql = "SELECT * FROM `item`";
+						$result = mysqli_query($mysqli, $sql);
+
+				?>
+				<select name="price"class="form-control">
+                      <?php
+                          
+						  
+                          $resultCheck = mysqli_num_rows($records);
+
+                            while ($row = mysqli_fetch_array($result)) {
+                      ?>
+                           <option class="form-control"value="<?php echo $row['price'];?>"><?php echo $row['price'];?></option>   
+                           <?php   
+                          }
+                          ?>
+            </select>
 		<div>
 				<label>Customer_Name</label>
 				<?php
@@ -45,7 +79,7 @@
 						$result = mysqli_query($mysqli, $sql);
 
 				?>
-				<select name="lastname" class="form-control">
+				<select name="customer_id" class="form-control">
                       <?php
                           
 						  
@@ -53,31 +87,12 @@
 
                             while ($row = mysqli_fetch_array($result)) {
                       ?>
-                           <option value="<?php echo $row['lastname'];?>"><?php echo $row['lastname'];?></option>   
+                           <option value="<?php echo $row['id'];?>"><?php echo $row['lastname'];?></option>   
                            <?php   
                           }
                           ?>
             </select>
-			<br>
-		<label>Item_Description</label>
-				<?php
-						$sql = "SELECT * FROM `item`";
-						$result = mysqli_query($mysqli, $sql);
-
-				?>
-				<select name="description"class="form-control">
-                      <?php
-                          
-						  
-                          $resultCheck = mysqli_num_rows($records);
-
-                            while ($row = mysqli_fetch_array($result)) {
-                      ?>
-                           <option class="form-control"value="<?php echo $row['description'];?>"><?php echo $row['description'];?></option>   
-                           <?php   
-                          }
-                          ?>
-            </select>
+		
 			<br>
 		<div class="form-group">
 		<?php 

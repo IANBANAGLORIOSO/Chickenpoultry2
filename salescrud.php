@@ -54,7 +54,13 @@
 		//pre_r($result);
 		
 		?>
+		<?php
 		
+		
+		$result = $mysqli->query("SELECT * FROM customer,sales where customer.id = sales.customer_id") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
 		<div class="row justify-content-center">
 		<br><br><br>
 			<table class="table">

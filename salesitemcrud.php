@@ -54,6 +54,13 @@
 		//pre_r($result);
 		
 		?>
+		<?php
+		
+		
+		$result = $mysqli->query("SELECT * FROM item,customer,salesitem where item.id=salesitem.item_id and customer.id=salesitem.customer_id") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
 		
 		<div class="row justify-content-center">
 		<br><br><br>
@@ -63,9 +70,11 @@
 					<tr class="text-white">
 						<th>Order</th>
 						<th>Item_Description</th>
-						<th>Quantity</th>
 						<th>Customer</th>
+						<th>Quantity</th>
+						
 						<th>Price</th>
+						<th>Total</th>
 						<th>Timestamp</th>
 						
 						<th colspan="2">Action</th>
@@ -78,10 +87,14 @@
 						<tr class="text-white">
 							<td><?php echo $row['id']?></td>
 							<td><?php echo $row['description']?></td>
-							<td><?php echo $row['quantity']?></td>
+							
+							
 							<td><?php echo $row['lastname']?></td>
-							<td><?php echo $row['price']?></td>
+							<td><?php echo $row['quantity']?></td>
+							<td>₱<?php echo $row['price']?></td>
+							<td>₱<?php echo $row['total']?></td>
 							<td><?php echo $row['time']?></td>
+							
 							
 							
 							<td>

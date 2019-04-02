@@ -54,6 +54,12 @@
 		//pre_r($result);
 		
 		?>
+		<?php
+	
+		$result = $mysqli->query("SELECT * FROM flocks,medication where flocks.id = medication.flocks_id ") or die($mysqli->error);
+		//pre_r($result);
+		
+		?>
 		
 		<div class="row justify-content-center">
 		<br><br><br>
@@ -61,7 +67,7 @@
 			
 				<thead>
 					<tr class="text-white">
-						<th>Breed</th>
+						<th>Flocks_Breed</th>
 						<th>Types_of_vaccine</th>
 						<th>Timestamp</th>
 						<th>Amount</th>
@@ -76,7 +82,7 @@
 							<td><?php echo $row['breed']?></td>
 							<td><?php echo $row['type_of_vaccine']?></td>
 							<td><?php echo $row['time']?></td>
-							<td><?php echo $row['amount']?></td>
+							<td>₱<?php echo $row['amount']?></td>
 							<td>
 								<a href="medicationadd.php?edit=<?php echo $row['id'];?>"
 									class="btn btn-warning">Edit</a>
